@@ -1,6 +1,15 @@
-image: postgres:15
+image:
+  repository: postgres
+  tag: "15"
 
-env:
-  POSTGRES_DB: firefly
-  POSTGRES_USER: firefly
-  POSTGRES_PASSWORD: secretpassword
+auth:
+  database: firefly
+  username: firefly
+  password: firefly-secret
+
+service:
+  port: 5432
+
+persistence:
+  enabled: true
+  size: 5Gi
