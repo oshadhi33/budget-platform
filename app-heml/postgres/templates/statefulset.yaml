@@ -24,4 +24,15 @@ spec:
             - name: POSTGRES_USER
               value: firefly
             - name: POSTGRES_PASSWORD
-              value: secretpassword
+              value: firefly-secret
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-storage
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 5Gi
