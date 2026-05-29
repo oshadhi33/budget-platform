@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firefly
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: firefly
+  template:
+    metadata:
+      labels:
+        app: firefly
+    spec:
+      containers:
+        - name: firefly
+          image: fireflyiii/core:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_ENV
+              value: "production"
+            - name: DB_CONNECTION
+              value: "pgsql"
