@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: fireflyiii/core
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 8080
+
+env:
+  APP_ENV: production
+  DB_CONNECTION: pgsql
