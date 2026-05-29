@@ -1,0 +1,6 @@
+image: postgres:15
+
+env:
+  POSTGRES_DB: firefly
+  POSTGRES_USER: firefly
+  POSTGRES_PASSWORD: secretpassword
